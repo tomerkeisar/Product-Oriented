@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+            var ul = document.querySelector("#ul1");
+            var observer = module.registerLogicFunctionOnHtmlElement(ul);
+            observer.next();
+            observer.next("tomer keisar");
+        });
+
+    </script>
+</head>
+<body>
+    <ul id="ul1" logic="myFunc(this,arguments)"></ul>
+    <script>
+        function myFunc(ul, args) {
+            console.log(ul, args);
+        }
+    </script>
+</body>
+</html>

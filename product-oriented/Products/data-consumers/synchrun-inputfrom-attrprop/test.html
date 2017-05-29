@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/html-element/',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+
+            var input = document.querySelector("div");
+
+            var observable = module.SynchrunInputFromAttrprop(input);
+            observable.subscribe((data) => {
+                console.log(data);
+            });
+        });
+    </script>
+</head>
+<body>
+   <div input-from="tomer"></div>
+</body>
+</html>

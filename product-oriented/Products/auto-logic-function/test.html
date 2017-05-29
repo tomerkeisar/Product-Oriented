@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+            var div = document.querySelector("div");
+            module.registerAutoLogicFunctionOnHtmlElement(div);
+        });
+
+    </script>
+</head>
+<body>
+    <div logic="alert('auto')" auto-logic="debugger;"></div>
+</body>
+</html>

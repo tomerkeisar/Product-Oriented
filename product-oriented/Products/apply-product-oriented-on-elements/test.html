@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': 'node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+
+        });
+
+    </script>
+</head>
+<body>
+    <div onclick="this.output=this.textContent" logic="alert('In logic')" auto-logic="true">
+    I am div 1 Copy me by click
+    </div>
+
+    <div input-from="div" logic="this.textContent+=this.inputfield">I am div 2</div>
+</body>
+</html>

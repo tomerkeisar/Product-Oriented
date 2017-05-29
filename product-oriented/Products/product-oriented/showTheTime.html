@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+
+                // map tells the System loader where to look for things
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                // packages tells the System loader how to load when no filename and/or no extension
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+
+            var div1 = document.querySelectorAll("div")[0];
+            var div2 = document.querySelectorAll("div")[1];
+            var div3 = document.querySelectorAll("div")[2];
+
+            module.ProductOriented(div1);
+            module.ProductOriented(div2);
+            module.ProductOriented(div3);
+        });
+    </script>
+</head>
+<body>
+    <div input-from=".converter" logic="this.textContent=this.inputfield"></div>
+    <div input-from=".data" logic="this.output=this.inputfield;" class="converter"></div>
+    <div class="data" logic="supplyDate.call(this)" auto-logic="true"></div>
+    <br />
+    <script>
+        function supplyDate() {
+            var self = this;
+            setInterval(function () {
+                self.output = new Date;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

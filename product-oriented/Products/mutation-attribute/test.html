@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+
+            var div = document.querySelector("div");
+            var observer = module.GetNotificationOnUserSetDataOnAttribute(div, "my-data");
+
+            observer.subscribe((value) => {
+                console.log("user set value: " + value);
+            });
+
+            div.setAttribute("my-data", "new val now");
+
+            var div2 = document.querySelector("#div2");
+            var observer2 = module.GetNotificationOnUserSetDataOnAttribute(div2, "my-data");
+
+            observer2.subscribe((data) => {
+                alert(data);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div my-data="changeme">
+        I am div
+    </div>
+
+    <div id="div2" my-data="another div">
+        I am another div
+    </div>
+</body>
+</html>

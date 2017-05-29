@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+
+                // map tells the System loader where to look for things
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                // packages tells the System loader how to load when no filename and/or no extension
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+
+            var elem = document.querySelector("div");
+
+            module.ResolveRelationWithOutputAndNotification(elem);
+        });
+    </script>
+</head>
+<body>
+
+    <div auto-logic="true" logic="alert('I am here')"></div>
+
+    <div input="initial val" input-from="div" logic="alert(this.inputfield)"></div>
+
+    <div output="For alert"></div>
+
+    Hello
+    <!--<div input-from="div1" logic="alert(this.input);">
+        I am getting data from suplyer
+    </div>
+
+    <div class="div1" input="Tomer Keisar"
+          auto-logic="true"
+         logic="alert(this.input)"> I am suplyer</div>
+
+    <div class="div"> I am suplyer 2 </div>-->
+
+</body>
+</html>

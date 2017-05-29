@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+
+        System.import("../../src/app/apply-product-oriented-on-elements/main.js");
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <!--Explanation on this tag in step 1-->
+    <input type="text" onkeyup="this.output=this.value" logic="" />
+
+    <!--
+        Explanation on input-from on this tag in step 2 eplanation on logic imiditaly
+        logic  attribute bind java script code to step of logic of this element that is 
+        every element has its own logic to do and the span logic is just to show input
+        that he recieved from another element in this case the input type text element
+        -->
+    <br />
+    <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span></h2>
+
+    <!--I REmcommend run this file on server open development toolbar and watching affected
+    of user typing-->
+
+    <a href="" target="_blank"> View animated gif of this step</a>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+            var propAttr = "input";
+
+            var input = document.querySelector("div");
+
+            module.SynchrunInputAttrpropLogic(input, propAttr);
+
+        });
+    </script>
+</head>
+<body>
+    <!--<div input="tomer" logic="alert(this.inputfield);"></div>-->
+   
+     <!--יש לטפל ברקורסיה זו-->
+    <!--<div input="1" logic="this.input=6;"></div>-->
+
+
+    <!--דיב זה מוכיח עבודה תקינה כבר בפעם הראשונה-->
+    <div input="tomer" logic="alert(this.inputfield)"></div>
+
+    <!--<div logic="alert('auto')" auto-logic="ss"></div>-->
+
+</body>
+</html>

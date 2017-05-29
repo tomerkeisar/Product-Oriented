@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+
+                // map tells the System loader where to look for things
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                // packages tells the System loader how to load when no filename and/or no extension
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+
+    <script>
+        System.import("main.js").then(function (module) {
+            var elem = document.querySelector("[input-from]");
+            var observable = module.ResolveRelation(elem);
+
+            observable.subscribe(data=> {
+                console.log(data);
+            });
+
+        });
+    </script>
+
+
+</head>
+<body>
+
+    <div input-from=".div1">
+        I am getting data from suplyer
+    </div>
+
+    <div class="div1"> I am suplyer</div>
+    <div> I am suplyer</div>
+</body>
+</html>

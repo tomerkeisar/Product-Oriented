@@ -1,0 +1,13 @@
+﻿{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "system",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+
+  "compileOnSave": true
+}

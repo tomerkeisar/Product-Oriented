@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+
+    <meta charset="utf-8" />
+
+    <script src="../../jspm_packages/system.js"></script>
+    <script src="../../config.js"></script>
+    <!--<script src="/build.js"></script>-->
+
+    <script>
+       System.import("dist/inject-property/main.js").then(function (module) {
+
+        var div = document.querySelector("div");
+        module.InsertPropertyOnDomElement(div, "input");
+
+        div.input.subscribe(function (data) {
+            console.log(data + "\t\ttype: " + typeof data);
+        });
+
+        div.input = "Simple var";
+
+        div['input'] = false;
+
+        div.input = function () {
+            return "Hello world";
+        };
+
+        div['input'] = false;
+
+          });
+    </script>
+
+</head>
+<body>
+    <div onclick="this.textContent=this.inputfield">I am div</div>
+</body>
+</html>

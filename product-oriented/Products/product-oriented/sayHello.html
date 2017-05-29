@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+
+                // map tells the System loader where to look for things
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                // packages tells the System loader how to load when no filename and/or no extension
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+
+            var input = document.querySelector("input");
+            var span = document.querySelector("span");
+
+            module.ProductOriented(input);
+            module.ProductOriented(span);
+        });
+    </script>
+</head>
+<body>
+
+    <input type="text" onkeyup="this.output=this.value" placeholder="Enter your name" />
+    <br />
+    <span input-from="input" logic="this.textContent=this.inputfield"></span>
+
+</body>
+</html>

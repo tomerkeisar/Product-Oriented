@@ -1,0 +1,10 @@
+{
+  "jspm": {
+    "dependencies": {
+      "rxjs": "npm:rxjs@^5.4.0"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^2.0.7"
+    }
+  }
+}

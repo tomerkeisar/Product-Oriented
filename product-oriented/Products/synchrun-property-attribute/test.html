@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+            var propAttr = "input";
+            var div = document.querySelector("div");
+
+            var observable = module.SynchrunPropertyAndAttribute(div, propAttr);
+
+            observable.subscribe(function (data) {
+                console.log("attribute changed ", data);
+            });
+            div[propAttr].subscribe(function (data) {
+                console.log("property changed ", data);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div input="tomer"></div>
+</body>
+</html>

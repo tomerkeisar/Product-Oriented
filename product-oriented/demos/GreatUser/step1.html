@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+
+        System.import("../../src/app/apply-product-oriented-on-elements/main.js");
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <!--We have simple input of type text 
+    when key up then property and attribute named output set to the user enter data
+    from now subscribers of that property can recive notification about data
+    Very Important: logic attribute nececary to manage this element by pProductOriented engine-->
+
+    <input type="text" onkeyup="this.output=this.value" logic="" />
+
+    <!--
+        I recommand open dev tool and watching the affect of user keys 
+        on output property/attribute 
+    -->
+    <a href="" target="_blank"> View animated gif of this step</a>
+</body>
+</html>

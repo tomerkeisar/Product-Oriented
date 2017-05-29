@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+            var input = document.querySelector("input");
+            var span = document.querySelector("span");
+
+            observerInput = module.registerLogicFunctionOnHtmlElement(input);
+            observerSpan = module.registerLogicFunctionOnHtmlElement(span);
+        });
+
+    </script>
+</head>
+<body>
+    <input style="height:30px; font-size:24px;" type="text"
+           placeholder="Enter your name"
+           onkeyup="observerSpan.next(this.value)" />
+    <span logic="this.textContent=arguments[0]"></span>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script>
+        (function (global) {
+            System.config({
+                map: {
+                    'app': '/src/app',
+                    'rxjs': '/node_modules/rxjs',
+                },
+                packages: {
+                    app: {
+                        defaultExtension: 'js',
+                    },
+                    rxjs: {
+                        defaultExtension: 'js'
+                    },
+                }
+            });
+        })(this);
+    </script>
+    <script>
+        System.import("main.js").then(function (module) {
+            m = module;
+            var input = document.querySelector("input");
+            var ul = document.querySelector("ul");
+            var div = document.querySelector("div");
+
+            observerUl = module.registerLogicFunctionOnHtmlElement(ul);
+            observerDiv = module.registerLogicFunctionOnHtmlElement(div);
+        });
+
+    </script>
+</head>
+<body>
+    <div name="divForCollectData" logic="collectData.apply(this,arguments)"></div>
+    <script>
+        function collectData(data) {
+            debugger
+            if (typeof this.data == "undefined") {
+                this.data = [];
+            }
+            this.data.push(data);
+        }
+
+    </script>
+    <input type="text"
+           placeholder="Enter To Do"
+           onkeyup="if (event.keyCode == '13') { observerUl.next(this.value); observerDiv.next(this.value); this.value='' }" />
+
+    <ul logic="createLi.apply(this,arguments)">
+        <template>
+            <li>
+                <span logic="this.textContent=arguments[0]"></span>
+                <button onclick="this['logic'].next();"
+                        logic="removeLi.apply(this);observerDiv.next(arguments)">
+                    Delete
+                </button>
+            </li>
+        </template>
+    </ul>
+
+    <script>
+        function removeLi() {
+            debugger
+            var li = this.parentElement;
+            li.parentElement.removeChild(li);
+        }
+        function createLi(data) {
+            var cloned = this.querySelector("template").content.cloneNode(true);
+            var observer = m.registerLogicFunctionOnHtmlElement(cloned.querySelector("span"));
+            var observer2 = m.registerLogicFunctionOnHtmlElement(cloned.querySelector("button"));
+            observer2.next(data);
+            observer.next(data);
+            this.appendChild(cloned);
+        }
+    </script>
+
+</body>
+</html>
