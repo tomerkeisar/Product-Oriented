@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="build.js" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -82,7 +83,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="build.js" />
     <Content Include="config.js" />
     <Content Include="demos\GreatUser\final.html" />
     <Content Include="demos\GreatUser\step1.html" />

@@ -2,28 +2,7 @@
 <html>
 <head>
     <title></title>
-    <script src="/node_modules/systemjs/dist/system.src.js"></script>
-    <script>
-        (function (global) {
-            System.config({
-                map: {
-                    'app': '/src/app',
-                    'rxjs': '/node_modules/rxjs',
-                },
-                packages: {
-                    app: {
-                        defaultExtension: 'js',
-                    },
-                    rxjs: {
-                        defaultExtension: 'js'
-                    },
-                }
-            });
-        })(this);
-
-        System.import("../../src/app/apply-product-oriented-on-elements/main.js");
-    </script>
-    <meta charset="utf-8" />
+       <meta charset="utf-8" />
 </head>
 <body>
 
@@ -38,6 +17,9 @@
         I recommand open dev tool and watching the affect of user keys 
         on output property/attribute 
     -->
-    <a href="" target="_blank"> View animated gif of this step</a>
+    <!--<a href="" target="_blank"> View animated gif of this step</a>-->
+
+    <script src="/build.js"></script>
+
 </body>
 </html>

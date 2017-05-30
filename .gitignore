@@ -3,3 +3,5 @@
 ################################################################################
 
 /packages
+/product-oriented/jspm_packages
+/product-oriented/obj
