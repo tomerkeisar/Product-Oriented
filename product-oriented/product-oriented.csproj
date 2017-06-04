@@ -69,12 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="build.js" />
+    <Content Include="dist\apply-product-oriented-on-elements\apply-product-oriented-on-element.js" />
+    <Content Include="dist\apply-product-oriented-on-elements\main.js" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
     <Content Include="Products\inject-property\specification.docx" />
     <Content Include="Products\logic-function\specification.docx" />
     <Content Include="Products\mutation-attribute\specification.docx" />
+    <Content Include="dist\apply-product-oriented-on-elements\apply-product-oriented-on-element.js.map" />
+    <Content Include="dist\apply-product-oriented-on-elements\main.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -89,7 +93,6 @@
     <Content Include="demos\GreatUser\step2.html" />
     <Content Include="demos\GreatUser\step3.html" />
     <Content Include="jspm_packages\npm\rxjs%405.4.0.js" />
-    <Content Include="jspm_packages\system.js" />
     <Content Include="Products\apply-product-oriented-on-elements\test.html" />
     <Content Include="Products\auto-logic-function\test.html" />
     <Content Include="Products\data-consumers-with-output-observable\test.html" />
