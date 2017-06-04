@@ -12,28 +12,28 @@ $__System.register("2", ["3"], function (exports_1, context_1) {
             Rx_1 = Rx_1_1;
         }],
         execute: function () {
-            LogicFunction = class LogicFunction {
-                constructor(elem) {
+            LogicFunction = function () {
+                function LogicFunction(elem) {
                     this.elem = elem;
                     this.subject = new Rx_1.BehaviorSubject("FirstTime");
                 }
-                registerElementOnLogicFunction() {
+                LogicFunction.prototype.registerElementOnLogicFunction = function () {
+                    var _this = this;
                     this.elem['logic'] = this.subject;
-                    this.subject.subscribe(data => {
-                        if (data != "FirstTime") this.callLogicFunctionToThisElement(data);
+                    this.subject.subscribe(function (data) {
+                        if (data != "FirstTime") _this.callLogicFunctionToThisElement(data);
                     });
                     return this.subject;
-                }
-                callLogicFunctionToThisElement(data) {
+                };
+                LogicFunction.prototype.callLogicFunctionToThisElement = function (data) {
                     var logicContent = this.elem.getAttribute("logic");
                     if (logicContent) {
-                        var strFunc = `(function () {
-                 ${logicContent};
-            }).call(this.elem,data)`;
+                        var strFunc = "(function () {\n                 " + logicContent + ";\n            }).call(this.elem,data)";
                         eval(strFunc);
                     }
-                }
-            };
+                };
+                return LogicFunction;
+            }();
             exports_1("LogicFunction", LogicFunction);
         }
     };
@@ -44,8 +44,8 @@ $__System.register("4", ["2"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function registerAutoLogicFunctionOnHtmlElement(elem) {
-        let obj = new logic_function_1.LogicFunction(elem);
-        let logicFunctionSubject = obj.registerElementOnLogicFunction();
+        var obj = new logic_function_1.LogicFunction(elem);
+        var logicFunctionSubject = obj.registerElementOnLogicFunction();
         elem.hasAttribute("auto-logic") && logicFunctionSubject.next(null);
         return logicFunctionSubject;
     }
@@ -64,9 +64,9 @@ $__System.register("5", ["6", "4"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function SynchrunInputAttrpropLogic(elem) {
-        let observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input");
-        let subjectLogicFunction = main_2.registerAutoLogicFunctionOnHtmlElement(elem);
-        observavleAttribute.subscribe(data => {
+        var observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input");
+        var subjectLogicFunction = main_2.registerAutoLogicFunctionOnHtmlElement(elem);
+        observavleAttribute.subscribe(function (data) {
             console.log("attribute changed", data);
             subjectLogicFunction.next(data);
         });
@@ -88,7 +88,7 @@ $__System.register("7", ["6"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function SynchrunOutputAttrpropLogic(elem) {
-        let observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "output");
+        var observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "output");
         if (elem.hasAttribute('init-output')) {
             elem['output'] = eval(elem.getAttribute('init-output'));
         }
@@ -108,7 +108,7 @@ $__System.register("8", ["6"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function SynchrunInputFromAttrprop(elem) {
-        let observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input-from");
+        var observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input-from");
         return observavleAttribute;
     }
     exports_1("SynchrunInputFromAttrprop", SynchrunInputFromAttrprop);
@@ -149,34 +149,36 @@ $__System.register("a", ["3", "9"], function (exports_1, context_1) {
             mutation_attribute_model_1 = mutation_attribute_model_1_1;
         }],
         execute: function () {
-            MutationAttribute = class MutationAttribute {
-                constructor(elem, attributeName) {
+            MutationAttribute = function () {
+                function MutationAttribute(elem, attributeName) {
                     this.elem = elem;
                     this.attributeName = attributeName;
                     this.subject = new Rx_1.BehaviorSubject(undefined);
-                    let seedVAl = this.elem.getAttribute(this.attributeName);
+                    var seedVAl = this.elem.getAttribute(this.attributeName);
                     if (seedVAl) {
                         this.subject.next(seedVAl);
                     }
-                    this.userSetDataToAttribute = this.subject.filter((value, index) => {
+                    this.userSetDataToAttribute = this.subject.filter(function (value, index) {
                         return typeof value != "undefined";
                     });
                 }
-                MutationOnAttribute() {
-                    var observer = new MutationObserver(mutations => {
-                        mutations.forEach(mutation => {
+                MutationAttribute.prototype.MutationOnAttribute = function () {
+                    var _this = this;
+                    var observer = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
                             if (mutation.type == "attributes") {
-                                if (mutation.attributeName == this.attributeName) {
-                                    var newVal = mutation.target.getAttribute(this.attributeName);
-                                    this.subject.next(newVal);
+                                if (mutation.attributeName == _this.attributeName) {
+                                    var newVal = mutation.target.getAttribute(_this.attributeName);
+                                    _this.subject.next(newVal);
                                 }
                             }
                         });
                     });
                     observer.observe(this.elem, mutation_attribute_model_1.Config);
                     return this.userSetDataToAttribute;
-                }
-            };
+                };
+                return MutationAttribute;
+            }();
             exports_1("MutationAttribute", MutationAttribute);
         }
     };
@@ -207,15 +209,16 @@ $__System.register("c", [], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            InjectProperty = class InjectProperty {
-                constructor(elem, model) {
+            InjectProperty = function () {
+                function InjectProperty(elem, model) {
                     this.elem = elem;
                     this.model = model;
                 }
-                injectPropertyToThisHtmlElement() {
+                InjectProperty.prototype.injectPropertyToThisHtmlElement = function () {
                     Object.defineProperty(this.elem, this.model.propName, this.model.descriptoes);
-                }
-            };
+                };
+                return InjectProperty;
+            }();
             exports_1("InjectProperty", InjectProperty);
         }
     };
@@ -16580,25 +16583,27 @@ $__System.register("171", ["3"], function (exports_1, context_1) {
             Rx_1 = Rx_1_1;
         }],
         execute: function () {
-            InjectPropertyModel = class InjectPropertyModel {
-                constructor(propName, elem) {
+            InjectPropertyModel = function () {
+                function InjectPropertyModel(propName, elem) {
+                    var _this = this;
                     this.propName = propName;
                     this.elem = elem;
                     this.subject = new Rx_1.BehaviorSubject(undefined);
                     this.descriptoes = {
-                        get: () => {
-                            return this.whenPropertyWasSet;
+                        get: function () {
+                            return _this.whenPropertyWasSet;
                         },
-                        set: val => {
-                            this.elem[this.propName + "field"] = val;
-                            this.subject.next(val);
+                        set: function (val) {
+                            _this.elem[_this.propName + "field"] = val;
+                            _this.subject.next(val);
                         }
                     };
-                    this.whenPropertyWasSet = this.subject.filter((value, index) => {
+                    this.whenPropertyWasSet = this.subject.filter(function (value, index) {
                         return typeof value != "undefined";
                     });
                 }
-            };
+                return InjectPropertyModel;
+            }();
             exports_1("InjectPropertyModel", InjectPropertyModel);
         }
     };
@@ -16609,7 +16614,7 @@ $__System.register("172", ["c", "171"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function InsertPropertyOnDomElement(elem, propName) {
-        let model = new inject_property_model_1.InjectPropertyModel(propName, elem);
+        var model = new inject_property_model_1.InjectPropertyModel(propName, elem);
         new inject_property_1.InjectProperty(elem, model).injectPropertyToThisHtmlElement();
     }
     exports_1("InsertPropertyOnDomElement", InsertPropertyOnDomElement);
@@ -16629,10 +16634,10 @@ $__System.register("6", ["b", "172"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function SynchrunPropertyAndAttribute(elem, attributePropName) {
-        let firstTimer = true;
-        let observable = main_1.GetNotificationOnUserSetDataOnAttribute(elem, attributePropName);
+        var firstTimer = true;
+        var observable = main_1.GetNotificationOnUserSetDataOnAttribute(elem, attributePropName);
         main_2.InsertPropertyOnDomElement(elem, attributePropName);
-        observable.subscribe(data => {
+        observable.subscribe(function (data) {
             if (firstTimer) {
                 firstTimer = false;
                 elem[attributePropName] = data;
@@ -16640,7 +16645,7 @@ $__System.register("6", ["b", "172"], function (exports_1, context_1) {
             }
             firstTimer = true;
         });
-        elem[attributePropName].subscribe(data => {
+        elem[attributePropName].subscribe(function (data) {
             if (firstTimer) {
                 firstTimer = false;
                 elem.setAttribute(attributePropName, data);
@@ -16674,33 +16679,35 @@ $__System.register("173", ["8", "6"], function (exports_1, context_1) {
             main_2 = main_2_1;
         }],
         execute: function () {
-            DataConsumer = class DataConsumer {
-                constructor(elemNeddedData) {
+            DataConsumer = function () {
+                function DataConsumer(elemNeddedData) {
                     this.elemNeddedData = elemNeddedData;
                     this.FirstTime = true;
                 }
-                ResolveRelation() {
-                    let observable = main_1.SynchrunInputFromAttrprop(this.elemNeddedData);
+                DataConsumer.prototype.ResolveRelation = function () {
+                    var _this = this;
+                    var observable = main_1.SynchrunInputFromAttrprop(this.elemNeddedData);
                     if (this.FirstTime) {
                         main_2.SynchrunPropertyAndAttribute(this.elemNeddedData, "data-suplyers");
                         this.FirstTime = false;
                     }
-                    observable.subscribe(data => {
-                        let supplyers = this.removeSelf(document.querySelectorAll(data));
-                        this.elemNeddedData["data-suplyers"] = supplyers;
+                    observable.subscribe(function (data) {
+                        var supplyers = _this.removeSelf(document.querySelectorAll(data));
+                        _this.elemNeddedData["data-suplyers"] = supplyers;
                     });
                     return this.elemNeddedData["data-suplyers"];
-                }
-                removeSelf(elems) {
-                    let retArray = [];
+                };
+                DataConsumer.prototype.removeSelf = function (elems) {
+                    var retArray = [];
                     for (var i = 0; i < elems.length; i++) {
                         if (elems[i] != this.elemNeddedData) {
                             retArray.push(elems[i]);
                         }
                     }
                     return retArray;
-                }
-            };
+                };
+                return DataConsumer;
+            }();
             exports_1("DataConsumer", DataConsumer);
         }
     };
@@ -16711,7 +16718,7 @@ $__System.register("174", ["173"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function ResolveRelation(elem) {
-        let obj = new data_consumer_1.DataConsumer(elem);
+        var obj = new data_consumer_1.DataConsumer(elem);
         return obj.ResolveRelation();
     }
     exports_1("ResolveRelation", ResolveRelation);
@@ -16730,7 +16737,7 @@ $__System.register("175", ["174"], function (exports_1, context_1) {
     var __moduleName = context_1 && context_1.id;
     function ResolveRelationWithOutput(elem) {
         var observable = main_1.ResolveRelation(elem);
-        observable.subscribe(relatives => {});
+        observable.subscribe(function (relatives) {});
         return observable;
     }
     exports_1("ResolveRelationWithOutput", ResolveRelationWithOutput);
@@ -16748,16 +16755,18 @@ $__System.register("176", ["3", "175"], function (exports_1, context_1) {
 
     var __moduleName = context_1 && context_1.id;
     function ResolveRelationWithOutputAndNotify(elem) {
-        let intObservable = new Rx_1.BehaviorSubject(undefined);
-        let retObservable = intObservable.filter(val => typeof val != "undefined");
-        let observable = main_1.ResolveRelationWithOutput(elem);
-        let array = [];
-        let subscribers = [];
-        observable.subscribe(data => {
+        var intObservable = new Rx_1.BehaviorSubject(undefined);
+        var retObservable = intObservable.filter(function (val) {
+            return typeof val != "undefined";
+        });
+        var observable = main_1.ResolveRelationWithOutput(elem);
+        var array = [];
+        var subscribers = [];
+        observable.subscribe(function (data) {
             clearPrev();
             for (var i = 0; i < data.length; i++) {
                 var elem = data[i];
-                let sub = elem['output'].subscribe(output => {
+                var sub = elem['output'].subscribe(function (output) {
                     intObservable.next(output);
                 });
                 subscribers.push(sub);
@@ -16794,7 +16803,7 @@ $__System.register("177", ["5", "7", "176"], function (exports_1, context_1) {
     exports_1("ProductOriented", ProductOriented);
     function ResolveRelation(elem) {
         var observable = main_3.ResolveRelationWithOutputAndNotify(elem);
-        let sub = observable.subscribe(relativeOutput => {
+        var sub = observable.subscribe(function (relativeOutput) {
             if (!elem['skip']) elem['input'] = relativeOutput;
             if (elem['data-suplyersfield'][0].tagName === "TEMPLATE") {
                 elem['skip'] = true;
@@ -16827,17 +16836,18 @@ $__System.register("178", ["177"], function (exports_1, context_1) {
             main_2 = main_1_1;
         }],
         execute: function () {
-            ApplyProductOrientedOnElements = class ApplyProductOrientedOnElements {
-                constructor(elem) {
+            ApplyProductOrientedOnElements = function () {
+                function ApplyProductOrientedOnElements(elem) {
                     this.elem = elem;
                 }
-                ApplyProductOrientedOnElements() {
+                ApplyProductOrientedOnElements.prototype.ApplyProductOrientedOnElements = function () {
                     main_1.ProductOriented(this.elem);
-                }
-                ApplyResolveRelationOnElements() {
+                };
+                ApplyProductOrientedOnElements.prototype.ApplyResolveRelationOnElements = function () {
                     main_2.ResolveRelation(this.elem);
-                }
-            };
+                };
+                return ApplyProductOrientedOnElements;
+            }();
             exports_1("ApplyProductOrientedOnElements", ApplyProductOrientedOnElements);
         }
     };
