@@ -41,10 +41,12 @@ this code generate to do list
 
 ## 3. Show the time
 ```html
- <div auto-logic="yes" logic="var self= this;setInterval(function(){self.output=new Date().toLocaleTimeString()},1000)">
-    </div>
-    <div input-from="div" style="font-size:26px;" logic="this.textContent='The time in Tel Aviv is: '+this.inputfield;">
-    </div>
+ <div auto-logic="yes" 
+     logic="var self= this;setInterval(function(){self.output=new Date().toLocaleTimeString()},1000)">
+ </div> 
+ <div input-from="div"
+     style="font-size:26px;" logic="this.textContent='The time in Tel Aviv is: '+this.inputfield;">
+ </div>
  ```
 
 ## Authors
