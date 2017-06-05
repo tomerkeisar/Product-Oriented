@@ -25,8 +25,20 @@ For wish to greet uaser you can write this code
 ```
 this code synchrun user keys on input to span text
 
- ## 2. another example
+ ## 2. To do list
 
+```html
+<input type="text" placeholder="Add To Do" onkeyup="if (event.keyCode === 13 && this.value)
+    { this.output = this.value; this.value = '' }" logic="" />
+    <ul>
+        <template input-from="input" logic="this.output=this.inputfield;
+                  this.parentElement.appendChild(this.content.cloneNode(true));">
+            <li input-from="template" logic="this.textContent=this.inputfield"></li>
+        </template>
+    </ul>
+this code generate to do list
+
+```
 ## Authors
 
 * **Tomer Keisar** 
