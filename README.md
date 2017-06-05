@@ -16,7 +16,8 @@ build.js located under product-oriented directory  and link to that file from en
 ```
 
 ## Examples
-If you wish to greet uaser you can write this code
+1. Greet user
+For wish to greet uaser you can write this code
 ```html
  <input type="text" onkeyup="this.output=this.value" logic="" />
   
