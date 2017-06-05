@@ -36,7 +36,7 @@ this code synchrun user keys on input to span text
             <li input-from="template" logic="this.textContent=this.inputfield"></li>
         </template>
     </ul>
-    ```
+```
 this code generate to do list
 
 ## 3. Show the time
