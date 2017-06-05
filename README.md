@@ -36,9 +36,17 @@ this code synchrun user keys on input to span text
             <li input-from="template" logic="this.textContent=this.inputfield"></li>
         </template>
     </ul>
+    ```
 this code generate to do list
 
-```
+## 3. Show the time
+```html
+ <div auto-logic="yes" logic="var self= this;setInterval(function(){self.output=new Date().toLocaleTimeString()},1000)">
+    </div>
+    <div input-from="div" style="font-size:26px;" logic="this.textContent='The time in Tel Aviv is: '+this.inputfield;">
+    </div>
+ ```
+
 ## Authors
 
 * **Tomer Keisar** 
