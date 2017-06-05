@@ -13,7 +13,7 @@ If you wish to greet uaser you can write this code
   
  <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span></h2>
 ```
-And if you want to 
+this code synchrun user keys on input to output in span
 
 ## Authors
 
