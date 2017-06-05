@@ -1,23 +1,13 @@
 # Product Oriented
 
-Amaizing Library that manage connections between elements
-
+Library that enable to make connections between dom elements 
 
 ##Examples
 
 ```html
-<h2>Example of code</h2>
-
-<pre>
-    <div class="container">
-        <div class="block two first">
-            <h2>Your title</h2>
-            <div class="wrap">
-            //Your content
-            </div>
-        </div>
-    </div>
-</pre>
+  <input type="text" onkeyup="this.output=this.value" logic="" />
+  
+ <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span></h2>
 ```
 
 ## Getting Started
