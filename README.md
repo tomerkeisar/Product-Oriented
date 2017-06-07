@@ -24,7 +24,7 @@ To wish to  user the best you can write this code:
 ```html
  <input type="text" onkeyup="this.output=this.value" logic="" />
   
- <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span></h2>
+ <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span> We wish for you the best</h2>
 ```
 
  ## 2. To do list
