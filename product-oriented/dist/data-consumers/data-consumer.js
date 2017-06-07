@@ -26,6 +26,12 @@ System.register(["./synchrun-inputfrom-attrprop/main", "../synchrun-property-att
                     observable.subscribe(data => {
                         let supplyers = this.removeSelf(document.querySelectorAll(data));
                         this.elemNeddedData["data-suplyers"] = supplyers;
+                        if (supplyers.length === 0) {
+                            setTimeout(() => {
+                                let supplyers = this.removeSelf(document.querySelectorAll(data));
+                                this.elemNeddedData["data-suplyers"] = supplyers;
+                            }, 10);
+                        }
                     });
                     return this.elemNeddedData["data-suplyers"];
                 }

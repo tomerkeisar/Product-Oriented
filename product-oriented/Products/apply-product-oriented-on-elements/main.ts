@@ -18,12 +18,20 @@ function registerProductOriented() {
 
     var insertedNodes = [];
     document.addEventListener("DOMNodeInserted", function (e) {
+
         var elem = e.target as HTMLElement;
-        if (elem && elem.tagName) {
-            var obj = new ApplyProductOrientedOnElements(<HTMLElement>elem);
-            obj.ApplyProductOrientedOnElements();
-            obj.ApplyResolveRelationOnElements();
+        recursia(elem as HTMLElement);
+        function recursia(elem: HTMLElement) {
+            if (elem && elem.tagName) {
+                var obj = new ApplyProductOrientedOnElements(<HTMLElement>elem);
+                obj.ApplyProductOrientedOnElements();
+                obj.ApplyResolveRelationOnElements();
+                for (var i = 0; i < elem.children.length; i++) {
+                    recursia(elem.children[i] as HTMLElement);
+                }
+            }
         }
+        
     }, false);
 }
 

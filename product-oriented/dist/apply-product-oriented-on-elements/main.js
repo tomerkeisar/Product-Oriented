@@ -16,10 +16,16 @@ System.register(["./apply-product-oriented-on-element"], function (exports_1, co
         var insertedNodes = [];
         document.addEventListener("DOMNodeInserted", function (e) {
             var elem = e.target;
-            if (elem && elem.tagName) {
-                var obj = new apply_product_oriented_on_element_1.ApplyProductOrientedOnElements(elem);
-                obj.ApplyProductOrientedOnElements();
-                obj.ApplyResolveRelationOnElements();
+            recursia(elem);
+            function recursia(elem) {
+                if (elem && elem.tagName) {
+                    var obj = new apply_product_oriented_on_element_1.ApplyProductOrientedOnElements(elem);
+                    obj.ApplyProductOrientedOnElements();
+                    obj.ApplyResolveRelationOnElements();
+                    for (var i = 0; i < elem.children.length; i++) {
+                        recursia(elem.children[i]);
+                    }
+                }
             }
         }, false);
     }

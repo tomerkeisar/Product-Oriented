@@ -2,26 +2,94 @@
 <html>
 <head>
     <title></title>
-    <!--<script src="/jspm_packages/system.js"></script>
+    <script src="/jspm_packages/system.js"></script>
     <script src="/config.js"></script>
-    
-   <script>
-       System.import("/dist/apply-product-oriented-on-elements/main");
-   </script>-->
+
+    <script>
+        System.import("/dist/apply-product-oriented-on-elements/main");
+    </script>
     <meta charset="utf-8" />
 </head>
 <body>
 
-    <!--Fianl file contain only the running code without explanation.
-    watch the steps for explanations-->
+    <div class="repeater1" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
+    <div class="repeater2" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
+    <script>
+        function repeatThreeTimes() {
+            for (var i = 0; i < 3; i++) {
+                var self = this;
+                setTimeout(function () {
+                    self.output = null;
+                });
+            }
+        }
+    </script>
+    <table>
+        <template input-from=".repeater1"
+                  logic="this.parentElement.appendChild(this.content.cloneNode(true))">
+            <tr>
+                <template input-from=".repeater2"
+                          logic="this.parentElement.appendChild(this.content.cloneNode(true))">
+                    <td>
+                        <div class="kube" style="width:50px;
+                                                 height:50px;
+                                                 background-color:gray;
+                                                 cursor:pointer;"
+                             onclick="this.output=this">
+                        </div>
+                    </td>
+                </template>
+            </tr>
+        </template>
+    </table>
+    <div class="marker" input-from=".kube"
+         logic="markKube.apply(this)"></div>
+    <script>
+        function markKube() {
+            if (!this.inputfield.textContent.trim()) {
+                this.inputfield.textContent = this.outputfield ? this.outputfield : this.outputfield = 'X';
+                this.output = this.outputfield == 'X' ? 'O' : 'X';
+            }
+        }
+    </script>
+    <div class="checker" input-from=".marker" logic="checkWinner.apply(this)"></div>
+    <script>
+        function checkWinner() {
+            var variations = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
-    <input type="text" onkeyup="this.output=this.value" logic="" />
-    <br />
-    <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span></h2>
+            var self = this;
+            var alldivs = document.querySelectorAll('.kube');
+            for (var i = 0; i < variations.length; i++) {
+                checkArrayEqaulity(alldivs[variations[i][0]],
+                    alldivs[variations[i][1]],
+                    alldivs[variations[i][2]]);
+            }
 
-    <!--<a href="" target="_blank"> Animated gif</a>-->
+            function checkArrayEqaulity(cell1, cell2, cell3) {
+                var res = cell1.textContent.trim() &&
+                    cell1.textContent.trim() === cell2.textContent &&
+                    cell1.textContent === cell3.textContent;
+                if (res) {
+                    self.output = {
+                        winner: cell1.textContent.trim(),
+                        divs: alldivs
+                    };
+                }
+            }
+        }
+    </script>
+    <div input-from=".checker" logic="notifyWinnerAndReset.apply(this)"></div>
+    <script>
+        function notifyWinnerAndReset() {
+            setTimeout(function () {
+                alert('The winner is: ' + this.inputfield.winner);
 
-    <script src="/build.js"></script>
-
+                for (var i = 0; i < this.inputfield.divs.length; i++) {
+                    this.inputfield.divs[i].textContent = '';
+                }
+            }.bind(this));
+        }
+    </script>
 </body>
 </html>
