@@ -10,17 +10,18 @@ System.register(["../product-oriented/main"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            ApplyProductOrientedOnElements = class ApplyProductOrientedOnElements {
-                constructor(elem) {
+            ApplyProductOrientedOnElements = (function () {
+                function ApplyProductOrientedOnElements(elem) {
                     this.elem = elem;
                 }
-                ApplyProductOrientedOnElements() {
+                ApplyProductOrientedOnElements.prototype.ApplyProductOrientedOnElements = function () {
                     main_1.ProductOriented(this.elem);
-                }
-                ApplyResolveRelationOnElements() {
+                };
+                ApplyProductOrientedOnElements.prototype.ApplyResolveRelationOnElements = function () {
                     main_2.ResolveRelation(this.elem);
-                }
-            };
+                };
+                return ApplyProductOrientedOnElements;
+            }());
             exports_1("ApplyProductOrientedOnElements", ApplyProductOrientedOnElements);
         }
     };

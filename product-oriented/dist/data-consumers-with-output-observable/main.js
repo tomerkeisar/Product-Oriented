@@ -2,16 +2,16 @@ System.register(["jspm_packages/npm/rxjs@5.4.0/Rx", "../data-consumers-with-outp
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function ResolveRelationWithOutputAndNotify(elem) {
-        let intObservable = new Rx_1.BehaviorSubject(undefined);
-        let retObservable = intObservable.filter(val => typeof val != "undefined");
-        let observable = main_1.ResolveRelationWithOutput(elem);
-        let array = [];
-        let subscribers = [];
-        observable.subscribe((data) => {
+        var intObservable = new Rx_1.BehaviorSubject(undefined);
+        var retObservable = intObservable.filter(function (val) { return typeof val != "undefined"; });
+        var observable = main_1.ResolveRelationWithOutput(elem);
+        var array = [];
+        var subscribers = [];
+        observable.subscribe(function (data) {
             clearPrev();
             for (var i = 0; i < data.length; i++) {
                 var elem = data[i];
-                let sub = elem['output'].subscribe((output) => {
+                var sub = elem['output'].subscribe(function (output) {
                     intObservable.next(output);
                 });
                 subscribers.push(sub);

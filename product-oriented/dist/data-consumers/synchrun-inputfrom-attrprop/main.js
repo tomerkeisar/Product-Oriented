@@ -2,7 +2,7 @@ System.register(["../../synchrun-property-attribute/main"], function (exports_1,
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function SynchrunInputFromAttrprop(elem) {
-        let observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input-from");
+        var observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input-from");
         return observavleAttribute;
     }
     exports_1("SynchrunInputFromAttrprop", SynchrunInputFromAttrprop);

@@ -2,8 +2,8 @@ System.register(["../logic-function/logic-function"], function (exports_1, conte
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function registerAutoLogicFunctionOnHtmlElement(elem) {
-        let obj = new logic_function_1.LogicFunction(elem);
-        let logicFunctionSubject = obj.registerElementOnLogicFunction();
+        var obj = new logic_function_1.LogicFunction(elem);
+        var logicFunctionSubject = obj.registerElementOnLogicFunction();
         elem.hasAttribute("auto-logic") && logicFunctionSubject.next(null);
         return logicFunctionSubject;
     }

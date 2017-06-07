@@ -2,9 +2,9 @@ System.register(["../synchrun-property-attribute/main", "../auto-logic-function/
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function SynchrunInputAttrpropLogic(elem) {
-        let observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input");
-        let subjectLogicFunction = main_2.registerAutoLogicFunctionOnHtmlElement(elem);
-        observavleAttribute.subscribe((data) => {
+        var observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "input");
+        var subjectLogicFunction = main_2.registerAutoLogicFunctionOnHtmlElement(elem);
+        observavleAttribute.subscribe(function (data) {
             console.log("attribute changed", data);
             subjectLogicFunction.next(data);
         });

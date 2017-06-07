@@ -5,15 +5,16 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            InjectProperty = class InjectProperty {
-                constructor(elem, model) {
+            InjectProperty = (function () {
+                function InjectProperty(elem, model) {
                     this.elem = elem;
                     this.model = model;
                 }
-                injectPropertyToThisHtmlElement() {
+                InjectProperty.prototype.injectPropertyToThisHtmlElement = function () {
                     Object.defineProperty(this.elem, this.model.propName, this.model.descriptoes);
-                }
-            };
+                };
+                return InjectProperty;
+            }());
             exports_1("InjectProperty", InjectProperty);
         }
     };

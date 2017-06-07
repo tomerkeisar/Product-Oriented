@@ -2,10 +2,10 @@ System.register(["../mutation-attribute/main", "../inject-property/main"], funct
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function SynchrunPropertyAndAttribute(elem, attributePropName) {
-        let firstTimer = true;
-        let observable = main_1.GetNotificationOnUserSetDataOnAttribute(elem, attributePropName);
+        var firstTimer = true;
+        var observable = main_1.GetNotificationOnUserSetDataOnAttribute(elem, attributePropName);
         main_2.InsertPropertyOnDomElement(elem, attributePropName);
-        observable.subscribe((data) => {
+        observable.subscribe(function (data) {
             if (firstTimer) {
                 firstTimer = false;
                 elem[attributePropName] = data;
@@ -13,7 +13,7 @@ System.register(["../mutation-attribute/main", "../inject-property/main"], funct
             }
             firstTimer = true;
         });
-        elem[attributePropName].subscribe((data) => {
+        elem[attributePropName].subscribe(function (data) {
             if (firstTimer) {
                 firstTimer = false;
                 elem.setAttribute(attributePropName, data);

@@ -9,25 +9,27 @@ System.register(["jspm_packages/npm/rxjs@5.4.0/Rx"], function (exports_1, contex
             }
         ],
         execute: function () {
-            InjectPropertyModel = class InjectPropertyModel {
-                constructor(propName, elem) {
+            InjectPropertyModel = (function () {
+                function InjectPropertyModel(propName, elem) {
+                    var _this = this;
                     this.propName = propName;
                     this.elem = elem;
                     this.subject = new Rx_1.BehaviorSubject(undefined);
                     this.descriptoes = {
-                        get: () => {
-                            return this.whenPropertyWasSet;
+                        get: function () {
+                            return _this.whenPropertyWasSet;
                         },
-                        set: (val) => {
-                            this.elem[this.propName + "field"] = val;
-                            this.subject.next(val);
-                        },
+                        set: function (val) {
+                            _this.elem[_this.propName + "field"] = val;
+                            _this.subject.next(val);
+                        }
                     };
-                    this.whenPropertyWasSet = this.subject.filter((value, index) => {
+                    this.whenPropertyWasSet = this.subject.filter(function (value, index) {
                         return typeof value != "undefined";
                     });
                 }
-            };
+                return InjectPropertyModel;
+            }());
             exports_1("InjectPropertyModel", InjectPropertyModel);
         }
     };

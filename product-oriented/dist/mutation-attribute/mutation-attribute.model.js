@@ -7,7 +7,7 @@ System.register([], function (exports_1, context_1) {
         execute: function () {
             exports_1("Config", Config = {
                 attributes: true,
-                attributeOldValue: true,
+                attributeOldValue: true
             });
         }
     };

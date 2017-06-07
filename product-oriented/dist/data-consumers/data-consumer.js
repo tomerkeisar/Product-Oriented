@@ -12,39 +12,41 @@ System.register(["./synchrun-inputfrom-attrprop/main", "../synchrun-property-att
             }
         ],
         execute: function () {
-            DataConsumer = class DataConsumer {
-                constructor(elemNeddedData) {
+            DataConsumer = (function () {
+                function DataConsumer(elemNeddedData) {
                     this.elemNeddedData = elemNeddedData;
                     this.FirstTime = true;
                 }
-                ResolveRelation() {
-                    let observable = main_1.SynchrunInputFromAttrprop(this.elemNeddedData);
+                DataConsumer.prototype.ResolveRelation = function () {
+                    var _this = this;
+                    var observable = main_1.SynchrunInputFromAttrprop(this.elemNeddedData);
                     if (this.FirstTime) {
                         main_2.SynchrunPropertyAndAttribute(this.elemNeddedData, "data-suplyers");
                         this.FirstTime = false;
                     }
-                    observable.subscribe(data => {
-                        let supplyers = this.removeSelf(document.querySelectorAll(data));
-                        this.elemNeddedData["data-suplyers"] = supplyers;
+                    observable.subscribe(function (data) {
+                        var supplyers = _this.removeSelf(document.querySelectorAll(data));
+                        _this.elemNeddedData["data-suplyers"] = supplyers;
                         if (supplyers.length === 0) {
-                            setTimeout(() => {
-                                let supplyers = this.removeSelf(document.querySelectorAll(data));
-                                this.elemNeddedData["data-suplyers"] = supplyers;
+                            setTimeout(function () {
+                                var supplyers = _this.removeSelf(document.querySelectorAll(data));
+                                _this.elemNeddedData["data-suplyers"] = supplyers;
                             }, 10);
                         }
                     });
                     return this.elemNeddedData["data-suplyers"];
-                }
-                removeSelf(elems) {
-                    let retArray = [];
+                };
+                DataConsumer.prototype.removeSelf = function (elems) {
+                    var retArray = [];
                     for (var i = 0; i < elems.length; i++) {
                         if (elems[i] != this.elemNeddedData) {
                             retArray.push(elems[i]);
                         }
                     }
                     return retArray;
-                }
-            };
+                };
+                return DataConsumer;
+            }());
             exports_1("DataConsumer", DataConsumer);
         }
     };

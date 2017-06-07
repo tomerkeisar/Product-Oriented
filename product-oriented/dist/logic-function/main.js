@@ -2,7 +2,7 @@ System.register(["./logic-function"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function registerLogicFunctionOnHtmlElement(elem) {
-        let obj = new logic_function_1.LogicFunction(elem);
+        var obj = new logic_function_1.LogicFunction(elem);
         return obj.registerElementOnLogicFunction();
     }
     exports_1("registerLogicFunctionOnHtmlElement", registerLogicFunctionOnHtmlElement);

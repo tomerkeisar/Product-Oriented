@@ -9,29 +9,29 @@ System.register(["jspm_packages/npm/rxjs@5.4.0/Rx"], function (exports_1, contex
             }
         ],
         execute: function () {
-            LogicFunction = class LogicFunction {
-                constructor(elem) {
+            LogicFunction = (function () {
+                function LogicFunction(elem) {
                     this.elem = elem;
                     this.subject = new Rx_1.BehaviorSubject("FirstTime");
                 }
-                registerElementOnLogicFunction() {
+                LogicFunction.prototype.registerElementOnLogicFunction = function () {
+                    var _this = this;
                     this.elem['logic'] = this.subject;
-                    this.subject.subscribe((data) => {
+                    this.subject.subscribe(function (data) {
                         if (data != "FirstTime")
-                            this.callLogicFunctionToThisElement(data);
+                            _this.callLogicFunctionToThisElement(data);
                     });
                     return this.subject;
-                }
-                callLogicFunctionToThisElement(data) {
+                };
+                LogicFunction.prototype.callLogicFunctionToThisElement = function (data) {
                     var logicContent = this.elem.getAttribute("logic");
                     if (logicContent) {
-                        var strFunc = `(function () {
-                 ${logicContent};
-            }).call(this.elem,data)`;
+                        var strFunc = "(function () {\n                 " + logicContent + ";\n            }).call(this.elem,data)";
                         eval(strFunc);
                     }
-                }
-            };
+                };
+                return LogicFunction;
+            }());
             exports_1("LogicFunction", LogicFunction);
         }
     };

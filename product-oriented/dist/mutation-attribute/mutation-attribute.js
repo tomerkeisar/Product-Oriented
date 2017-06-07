@@ -12,35 +12,37 @@ System.register(["jspm_packages/npm/rxjs@5.4.0/Rx", "./mutation-attribute.model"
             }
         ],
         execute: function () {
-            MutationAttribute = class MutationAttribute {
-                constructor(elem, attributeName) {
+            MutationAttribute = (function () {
+                function MutationAttribute(elem, attributeName) {
                     this.elem = elem;
                     this.attributeName = attributeName;
                     this.subject = new Rx_1.BehaviorSubject(undefined);
-                    let seedVAl = this.elem.getAttribute(this.attributeName);
+                    var seedVAl = this.elem.getAttribute(this.attributeName);
                     if (seedVAl) {
                         this.subject.next(seedVAl);
                     }
-                    this.userSetDataToAttribute = this.subject.filter((value, index) => {
+                    this.userSetDataToAttribute = this.subject.filter(function (value, index) {
                         return typeof value != "undefined";
                     });
                 }
-                MutationOnAttribute() {
-                    var observer = new MutationObserver((mutations) => {
-                        mutations.forEach((mutation) => {
+                MutationAttribute.prototype.MutationOnAttribute = function () {
+                    var _this = this;
+                    var observer = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
                             if (mutation.type == "attributes") {
-                                if (mutation.attributeName == this.attributeName) {
+                                if (mutation.attributeName == _this.attributeName) {
                                     var newVal = mutation.target
-                                        .getAttribute(this.attributeName);
-                                    this.subject.next(newVal);
+                                        .getAttribute(_this.attributeName);
+                                    _this.subject.next(newVal);
                                 }
                             }
                         });
                     });
                     observer.observe(this.elem, mutation_attribute_model_1.Config);
                     return this.userSetDataToAttribute;
-                }
-            };
+                };
+                return MutationAttribute;
+            }());
             exports_1("MutationAttribute", MutationAttribute);
         }
     };

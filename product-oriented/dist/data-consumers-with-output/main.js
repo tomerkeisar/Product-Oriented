@@ -3,7 +3,7 @@ System.register(["../data-consumers/main"], function (exports_1, context_1) {
     var __moduleName = context_1 && context_1.id;
     function ResolveRelationWithOutput(elem) {
         var observable = main_1.ResolveRelation(elem);
-        observable.subscribe((relatives) => {
+        observable.subscribe(function (relatives) {
         });
         return observable;
     }

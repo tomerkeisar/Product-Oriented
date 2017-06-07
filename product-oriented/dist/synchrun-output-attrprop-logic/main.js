@@ -2,7 +2,7 @@ System.register(["../synchrun-property-attribute/main"], function (exports_1, co
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function SynchrunOutputAttrpropLogic(elem) {
-        let observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "output");
+        var observavleAttribute = main_1.SynchrunPropertyAndAttribute(elem, "output");
         if (elem.hasAttribute('init-output')) {
             elem['output'] = eval(elem.getAttribute('init-output'));
         }

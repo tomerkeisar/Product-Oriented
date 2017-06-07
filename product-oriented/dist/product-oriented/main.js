@@ -8,7 +8,7 @@ System.register(["../synchrun-input-attrprop-logic/main", "../synchrun-output-at
     exports_1("ProductOriented", ProductOriented);
     function ResolveRelation(elem) {
         var observable = main_3.ResolveRelationWithOutputAndNotify(elem);
-        let sub = observable.subscribe((relativeOutput) => {
+        var sub = observable.subscribe(function (relativeOutput) {
             if (!elem['skip'])
                 elem['input'] = relativeOutput;
             if (elem['data-suplyersfield'][0].tagName === "TEMPLATE") {

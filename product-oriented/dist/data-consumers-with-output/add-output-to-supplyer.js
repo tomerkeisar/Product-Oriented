@@ -12,26 +12,28 @@ System.register(["jspm_packages/npm/rxjs@5.4.0/Rx", "../synchrun-property-attrib
             }
         ],
         execute: function () {
-            AddOutputToSupplyer = class AddOutputToSupplyer {
-                constructor(supplyers) {
+            AddOutputToSupplyer = (function () {
+                function AddOutputToSupplyer(supplyers) {
                     this.supplyers = supplyers;
                     this.fieldName = "output";
                     this.subject = new Rx_1.BehaviorSubject(null);
                 }
-                AddOutputPropertyAttributeToThisSupplyer() {
-                    this.subject.subscribe((elem) => {
-                        if (elem && !elem[this.fieldName]) {
-                            main_1.SynchrunPropertyAndAttribute(elem, this.fieldName);
+                AddOutputToSupplyer.prototype.AddOutputPropertyAttributeToThisSupplyer = function () {
+                    var _this = this;
+                    this.subject.subscribe(function (elem) {
+                        if (elem && !elem[_this.fieldName]) {
+                            main_1.SynchrunPropertyAndAttribute(elem, _this.fieldName);
                         }
                     });
                     this.iterateOnSupplyers();
-                }
-                iterateOnSupplyers() {
+                };
+                AddOutputToSupplyer.prototype.iterateOnSupplyers = function () {
                     for (var i = 0; i < this.supplyers.length; i++) {
                         this.subject.next(this.supplyers[i]);
                     }
-                }
-            };
+                };
+                return AddOutputToSupplyer;
+            }());
             exports_1("AddOutputToSupplyer", AddOutputToSupplyer);
         }
     };

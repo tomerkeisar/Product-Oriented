@@ -16694,6 +16694,12 @@ $__System.register("173", ["8", "6"], function (exports_1, context_1) {
                     observable.subscribe(function (data) {
                         var supplyers = _this.removeSelf(document.querySelectorAll(data));
                         _this.elemNeddedData["data-suplyers"] = supplyers;
+                        if (supplyers.length === 0) {
+                            setTimeout(function () {
+                                var supplyers = _this.removeSelf(document.querySelectorAll(data));
+                                _this.elemNeddedData["data-suplyers"] = supplyers;
+                            }, 10);
+                        }
                     });
                     return this.elemNeddedData["data-suplyers"];
                 };
@@ -16872,10 +16878,16 @@ $__System.register("1", ["178"], function (exports_1, context_1) {
         var insertedNodes = [];
         document.addEventListener("DOMNodeInserted", function (e) {
             var elem = e.target;
-            if (elem && elem.tagName) {
-                var obj = new apply_product_oriented_on_element_1.ApplyProductOrientedOnElements(elem);
-                obj.ApplyProductOrientedOnElements();
-                obj.ApplyResolveRelationOnElements();
+            recursia(elem);
+            function recursia(elem) {
+                if (elem && elem.tagName) {
+                    var obj = new apply_product_oriented_on_element_1.ApplyProductOrientedOnElements(elem);
+                    obj.ApplyProductOrientedOnElements();
+                    obj.ApplyResolveRelationOnElements();
+                    for (var i = 0; i < elem.children.length; i++) {
+                        recursia(elem.children[i]);
+                    }
+                }
             }
         }, false);
     }
