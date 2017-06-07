@@ -26,10 +26,9 @@ To wish to  user the best you can write this code:
   
  <h2>Hello <span input-from="input" logic="this.textContent=this.inputfield"></span></h2>
 ```
-this code synchrun user keys on input to span text
 
- ## 2. To display text box enable user type to do and display it on unordred list write this code:
-
+ ## 2. To do list
+To display text box enable user type to do and display it on unordred list write this code:
 ```html
 <input type="text" placeholder="Add To Do" onkeyup="if (event.keyCode === 13 && this.value)
     { this.output = this.value; this.value = '' }" logic="" />
@@ -40,9 +39,9 @@ this code synchrun user keys on input to span text
         </template>
     </ul>
 ```
-this code generate to do list
 
-## 3. To display the time write this code
+## 3.Show the time  
+To display the time write this code
 ```html
  <div auto-logic="yes" 
      logic="var self= this;setInterval(function(){self.output=new Date().toLocaleTimeString()},1000)">
@@ -52,7 +51,8 @@ this code generate to do list
  </div>
  ```
  
- ## 4. To show  Tic Tac Teo Game write this code
+ ## 4. Tic Tac Teo Game 
+ To show  Tic Tac Teo Game write this code
  ```html
   <div class="repeater1" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
     <div class="repeater2" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
