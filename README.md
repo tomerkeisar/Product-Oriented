@@ -2,6 +2,8 @@
 
 Product Oriented is a JavaScript library that help us to make it easy to build html elements.
 
+* **Cross Framework:** Product Oriented vision is to enable any body continue develope as he want  
+
 * **Unit of work:** Every Html element can serve as unit of work because in Product Oriented every html tag has input property output property and logic function.
 * **Connection between elements:** Product oriented allow to make connection between elements so one element output became another element input.
 
