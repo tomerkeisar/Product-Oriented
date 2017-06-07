@@ -20,7 +20,7 @@ build.js located under product-oriented directory  and link to that file from en
 
 ## Examples
 ## 1. Greet user
-For wish to greet uaser you can write this code
+To wish to  user the best you can write this code:
 ```html
  <input type="text" onkeyup="this.output=this.value" logic="" />
   
@@ -28,7 +28,7 @@ For wish to greet uaser you can write this code
 ```
 this code synchrun user keys on input to span text
 
- ## 2. To do list
+ ## 2. To display text box enable user type to do and display it on unordred list write this code:
 
 ```html
 <input type="text" placeholder="Add To Do" onkeyup="if (event.keyCode === 13 && this.value)
@@ -42,7 +42,7 @@ this code synchrun user keys on input to span text
 ```
 this code generate to do list
 
-## 3. Show the time
+## 3. To display the time write this code
 ```html
  <div auto-logic="yes" 
      logic="var self= this;setInterval(function(){self.output=new Date().toLocaleTimeString()},1000)">
@@ -52,7 +52,7 @@ this code generate to do list
  </div>
  ```
  
- ## 4. Tic Tac Teo Game
+ ## 4. To show  Tic Tac Teo Game write this code
  ```html
   <div class="repeater1" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
     <div class="repeater2" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
