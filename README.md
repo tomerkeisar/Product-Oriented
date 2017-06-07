@@ -48,6 +48,91 @@ this code generate to do list
      style="font-size:26px;" logic="this.textContent='The time in Tel Aviv is: '+this.inputfield;">
  </div>
  ```
+ 
+ ## 4. Tic Tac Teo Game
+ ```html
+  <div class="repeater1" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
+    <div class="repeater2" auto-logic="true" logic="repeatThreeTimes.apply(this)"></div>
+    <script>
+        function repeatThreeTimes() {
+            for (var i = 0; i < 3; i++) {
+                var self = this;
+                setTimeout(function () {
+                    self.output = null;
+                });
+            }
+        }
+    </script>
+    <table>
+        <template input-from=".repeater1"
+                  logic="this.parentElement.appendChild(this.content.cloneNode(true))">
+            <tr>
+                <template input-from=".repeater2"
+                          logic="this.parentElement.appendChild(this.content.cloneNode(true))">
+                    <td>
+                        <div class="kube" style="width:50px;
+                                                 height:50px;
+                                                 background-color:gray;
+                                                 cursor:pointer;"
+                             onclick="this.output=this">
+                        </div>
+                    </td>
+                </template>
+            </tr>
+        </template>
+    </table>
+    <div class="marker" input-from=".kube"
+         logic="markKube.apply(this)"></div>
+    <script>
+        function markKube() {
+            if (!this.inputfield.textContent.trim()) {
+                this.inputfield.textContent = this.outputfield ? this.outputfield : this.outputfield = 'X';
+                this.output = this.outputfield == 'X' ? 'O' : 'X';
+            }
+        }
+    </script>
+    <div class="checker" input-from=".marker" logic="checkWinner.apply(this)"></div>
+    <script>
+        function checkWinner() {
+            var variations = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+
+            var self = this;
+            var alldivs = document.querySelectorAll('.kube');
+            for (var i = 0; i < variations.length; i++) {
+                checkArrayEqaulity(alldivs[variations[i][0]],
+                    alldivs[variations[i][1]],
+                    alldivs[variations[i][2]]);
+            }
+
+            function checkArrayEqaulity(cell1, cell2, cell3) {
+                var res = cell1.textContent.trim() &&
+                    cell1.textContent.trim() === cell2.textContent &&
+                    cell1.textContent === cell3.textContent;
+                if (res) {
+                    self.output = {
+                        winner: cell1.textContent.trim(),
+                        divs: alldivs
+                    };
+                }
+            }
+        }
+    </script>
+    <div input-from=".checker" logic="notifyWinnerAndReset.apply(this)"></div>
+    <script>
+        function notifyWinnerAndReset() {
+            setTimeout(function () {
+                alert('The winner is: ' + this.inputfield.winner);
+
+                for (var i = 0; i < this.inputfield.divs.length; i++) {
+                    this.inputfield.divs[i].textContent = '';
+                }
+            }.bind(this));
+        }
+    </script>
+ 
+ 
+ ```
 
 ## Authors
 
