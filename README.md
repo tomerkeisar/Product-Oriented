@@ -36,7 +36,9 @@ We will do that in Product-Oriented way and you will see how short and simple th
         </template>
     </ul>
 ```
-Above code show that we can use native html and java script to build some application. the above code is the most shorten I ever seen for this mission. this application in addition composable if we need to add in the future some feature.
+Above code show that we can use native html and java script to build some application. the above code is the most shorten I ever seen for this mission. this application in addition composable if we need to add in the future some feature. and in addition all the code in placed in the the same place.
+the above solution can be built from the end to start for example we can start with ul code check the app and just after to write input element.
+
 
 
  
