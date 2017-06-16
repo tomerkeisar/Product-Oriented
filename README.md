@@ -2,13 +2,13 @@
 
 Product Oriented is a JavaScript library that make it easy to build html elements and web applications.
 
-* **Shortens you code Incredibly**
-* **Make you developement composable**
+* **Shortens your code incredibly**
+* **Make your developement process composable**
 * **All relevance code in same place** 
-* **Element Binding instead data binding**
-* **Cross Framework - Write as you did**
+* **Element Binding instead of data binding**
+* **Cross Framework -  continue write as you did**
 * **Back to native html java script and css** 
-* **Unit of work achive mission by element** 
+* **Unit of work achive certain mission by element** 
 * **No need chronological way to write solution**
 * **And More**
 
@@ -36,7 +36,7 @@ We will do that in Product-Oriented way and you will see how short and simple th
         </template>
     </ul>
 ```
-that is all.
+This example show that we can use native html and java script to build some application the code is the most shorten I ever seen. this application composable if we need to add feature
 
 
  
