@@ -24,7 +24,7 @@ build.js located under product-oriented directory  and link to that file from en
 ```
 ## Example
 ## To do list
-Our mission to create simple to do list that user can enter to do item in input and show all todos in list
+Our mission to create simple to do list that the user can enter to do item in input, and program show all todos the user entered in list.
 We will do that in Product-Oriented way and you will see how short and simple the code is.
 ```html
 <input type="text" placeholder="Add To Do" onkeyup="if (event.keyCode === 13 && this.value)
@@ -36,7 +36,7 @@ We will do that in Product-Oriented way and you will see how short and simple th
         </template>
     </ul>
 ```
-This example show that we can use native html and java script to build some application the code is the most shorten I ever seen. this application composable if we need to add feature
+Above code show that we can use native html and java script to build some application. the above code is the most shorten I ever seen for this mission. this application in addition composable if we need to add in the future some feature.
 
 
  
