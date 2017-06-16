@@ -36,14 +36,14 @@ We will do that in Product-Oriented way. and you will see how short and simple t
     </ul>
 ```
 This code generate worked to do list app. and it also shows all the Product-Oriented Pros as follow:
-* **Shortens your code incredibly** - above code the Shortnes code exist for that mission.
-* **Make your developement process composable** Adding some feature, for example counter that will show the  sum of todos the user  has, will be very simple. you just need to find in the exist code element to give you the data and create new element that get that data and make things. 
-* **All relevance code in same place** no need to navigate between files because all relevance code (html,javascript,css) here.  
-* **Element Binding instead of data binding** attribute input-from says i element that recive my input from another element.
-* **Cross Framework -  continue write as you did** No need to check Ho to do something in Product-Oriented just do things as you did before.
+* **Shortens your code incredibly** - above code the shortness code exist for that mission.
+* **Make your code and the developement process composable** Adding some feature, for example counter that will show the sum of todos the user  has, will be very simple. you just need to find in the exist code element to give you the data you need. and create new element that get that data and make things. 
+* **All relevance code in the same place** you no need to navigate between files because all relevance code (html, javascript, css) here.  
+* **Element Binding instead of data binding** all the bindings in the above code are between elements. find input-from attribute and see which element recive data and from which element.
+* **Cross Framework -  continue write as you did** you no need to check How to do something in Product-Oriented. just do things as you did before.
 * **Back to native html java script and css**  
-* **Unit of work - achive certain mission by element** look for example at the input element. his mission to enable user enter data and in case user press enter finish mission. 
-* **No need chronological way to write solution** you can start your code for example with the code of li. and just replace the input-from with another attribute and to run that element seperatly.
+* **Unit of work - achive certain mission by element** look for example at the input element. it mission is to enable user enter data and in case user pressed enter just finish the mission. 
+* **No need chronological way to write solution** you can start your code for example with the code of creating li. and just replace the input-from with another attribute and to run that element seperatly.
 
 
 
