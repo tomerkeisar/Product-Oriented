@@ -22,8 +22,7 @@ build.js located under product-oriented directory  and link to that file from en
     <script src="build.js">
  </body>
 ```
-## Example
-## To do list
+## Example - To do list 
 Our mission to create simple to do list that the user can enter to do item in input, and program show all todos the user entered in list.
 We will do that in Product-Oriented way and you will see how short and simple the code is.
 ```html
@@ -51,8 +50,7 @@ This code generate worked to do list app and it show all Product-Oriented Pros a
 
  
 
-## Author
+## Author - Tomer Keisar 
 
-## Tomer Keisar  
 
 
