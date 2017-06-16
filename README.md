@@ -21,7 +21,7 @@ build.js located under product-oriented directory  and link to that file from en
  
     <script src="build.js">
  </body>
-
+```
 ## Example
 ## To do list
 Our mission to create simple to do list that user can enter to do item in input and show all todos in list
