@@ -21,10 +21,8 @@ build.js located under product-oriented directory  and link to that file from en
  
     <script src="build.js">
  </body>
-```
 
 ## Example
-```
 ## To do list
 Our mission to create simple to do list that user can enter to do item in input and show all todos in list
 We will do that in Product-Oriented way and you will see how short and simple the code is.
@@ -37,7 +35,8 @@ We will do that in Product-Oriented way and you will see how short and simple th
             <li input-from="template" logic="this.textContent=this.inputfield"></li>
         </template>
     </ul>
-```that is all.
+```
+that is all.
 
 
  
