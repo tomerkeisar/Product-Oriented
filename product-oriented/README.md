@@ -15,7 +15,11 @@ in above code we just telling that when the user typed and release key the outpu
 Product-Oriented Properties are clever in way they reflect themselves to the attribute whats meen you can open your developer toolbar and type on the text box and in live watch the output attributes changed
 the logic attribute does nothing for now. but help us to fall intp PO selectors.
 
-<a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">make <a href="http://makeagif.com" title="make a gif">action GIFs</a> like this at MakeaGif</div>
+<a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">
+But we about to only when user press enter after he enter some data then that element makes it job lets update the code
+```html
+<input type="text" logic="" onkeyup="if(event.keyCode===13&&this.value){this.output=this.value}"/>
+```
 
 
 
