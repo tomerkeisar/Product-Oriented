@@ -1,7 +1,8 @@
-## I felt in love - start learnint Product-Oriented
+## I felt in love - Start Learnint Product-Oriented
 We will learn by our prev mission to do list.
-Mission decription: Our mission is to create simple to do list that the user can enter to do item in input element, and the program will show all todos that the user entered in unordered list.
-The solution:
+## The Problem:
+Our mission is to create simple to do list that the user can enter to do item in input element, and the program will show all todos that the user entered in unordered list.
+## The solution:
 * **Step 1**
 We need create input that allow the use type in and when the user press enter we can get the vallue the user typed that is we do not want to do something with that value we just need getting the value.
 One of core of Product-Oriented is the of unit of work that allow us to use exist html element to do some mission
