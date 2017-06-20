@@ -7,15 +7,15 @@ As we anncounced our mission is to create simple to do list that the user can en
 
 Start thinking of development process as job that need to be done by workers - form now sometimes i will give my html elments  the name workers.
 
-The first worker we need is input element that allow the use typing and when the user finish typing by pressing eneter, we are just need some reference to this elemets's final value.
-One of the core of Product-Oriented's concept is "Unit of work" meens that we allowed to use exist html element to do some mission.
+The first worker we need is input element that allow the use typing and when the user finish typing by pressing eneter, we are just need this element generating for us final value.
+One of the core of Product-Oriented's concept is "Unit of work" means that we allowed to use exist html element to do some complete mission.
 Let's create our worker.
 ```html
 <input type="text" logic="" onkeyup="this.output=this.value"/>
 ```
-Output is Product-Oriented property. that Property will allow another elements to know what the final result of certain element - in that case the input. 
-In the above onkeyup event listener code we just telling that when the user release keys, then the output property of the input element will be synchrunize with the input (itself) value.
-Our Properties are clever in way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  show in real time the affected property, (in our case Output) by appropriate attribute.
+Output is Product-Oriented property. that Property will allow us in the future another elements to know what the final result of that input element. 
+In the above onkeyup handler code we are just telling that when the user release keys, then the output property of this input element will be synchrunize with it's value.
+Our Properties (In that case output) are clever in the way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  watch in real time the affected property, (in our case Output) by appropriate attribute.
 
 The logic attribute, in this case does nothing, except helping us to fall this element intp Product-Oriented selectors.
 
