@@ -32,5 +32,5 @@ Let's modify our code:
 
 Above code did that only when the user press enter and the input hold some value just in this case we are generating output that will serve us in the future  comunication between another elements.
 
-
+Following gif animation Demonstrate this step.
 
