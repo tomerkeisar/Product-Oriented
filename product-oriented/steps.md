@@ -1,1 +1,20 @@
 
+* **Step 3**
+Now we need to bind the user data to li element in list.
+As in Product-Oriented every element can has output property so every html element can has input property in addition you could make connectio between two elements so one element's output becme another element input. you achieve that mission by the folowing code.
+```html
+<li input-from="input"></li>
+```
+Above code says: when the input element generate new output the li element will recieve that data as input.
+the fact that the li hold data in input property worth nothing if the element not declare what to do when he recieve new input.
+Look at the folowing code
+
+```html
+<li input-from="input" logic="this.textContent=this.inputfield"></li>  
+```
+Now the li declare in logic attribute that the main of this element logic is to write on that eleemnt the just value that we just get in input field.
+before we continue announce summary:
+In Product-Oriented every element can has input property output property and logic function what makes every html element as web component to achive certain mission
+
+Look at gif animation demonstrate this step:
+
