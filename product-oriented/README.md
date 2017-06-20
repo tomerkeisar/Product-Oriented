@@ -25,13 +25,17 @@ Following gif animation Demonstrate this step.
 
 * **Step 2** 
 
-We are about to only when the user press enter and in case it was on non empty input, just in this case to generate Output because just that situation means the input did its mission.
+But we are about to only when the user pressed enter and in case it was on non empty input, just in that case to generate Output because just that situation means the input did its mission.
 Let's modify our code:
 ```html
 <input type="text" logic="" onkeyup="if(event.keyCode===13&&this.value){this.output=this.value}"/>
 ```
 
-Above code did that only when the user press enter and the input hold some value just in this case we are generating output that will serve us in the future  comunication between another elements.
+Above code did exactly that. From now only when the user press enter and the input hold some value just in that case we are generating output, as we said output that will serve us in the future  comunication between that element to another elements.
 
 Following gif animation Demonstrate this step.
+
+Gif
+
+We saw that we can write, debuge, run and check element in definitly isolation way, that amaizing...
 
