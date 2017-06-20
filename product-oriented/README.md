@@ -3,7 +3,8 @@ We will learn Product-Oriented Concept by our previus to do list mission.
 ## The Problem:
 Ass we anncounced our mission is to create simple to do list that the user can enter to do item as string in input box, and our program will show all todos that the he has entered in unordered list.
 ## The solution:
-* **Step 1**
+* **Step 1** * 
+
 Start thinking of development process as job that need to be done by workers.
 The first worker e need is input element that we need that worker to allow the use type in the text box  and when the user finish typing by pressing eneter we are just need some reference to the final value.
 One of the core of Product-Oriented's concept is  "Unit of work" meens that we allowed to use exist html element to do some mission
