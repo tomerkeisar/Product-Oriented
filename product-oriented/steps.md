@@ -1,5 +1,6 @@
 
 * **Step 3**
+
 Now we need to bind the user data to li element in list.
 As in Product-Oriented every element can has output property so every html element can has input property in addition you could make connectio between two elements so one element's output becme another element input. you achieve that mission by the folowing code.
 ```html
@@ -18,4 +19,20 @@ In Product-Oriented every element can has input property output property and log
 
 Look at gif animation demonstrate this step:
 <a href="http://makeagif.com/gif/-_DXwGi" title=""><img src="http://i.makeagif.com/media/6-20-2017/_DXwGi.gif" alt=""></a><div style="font-size:11px;">
+
+* **Last Step**
+
+Hold on take a look at this code
+```html
+<ul>
+  <template input-from="input" logic="this.output=this.inputfield;
+                  this.parentElement.appendChild(this.content.cloneNode(true));">
+            <li input-from="template" logic="this.textContent=this.inputfield"></li>
+   </template> 
+</ul>
+```
+The above code says in words: when output ready from input element then template element recieve that dataa as input and do two things. one set his synchrun his output to the arrived input and creates li child and append it to the parent.
+the li says that it recieve input from template and use that value as text content...
+
+look at gif animation:
 
