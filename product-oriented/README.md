@@ -1,7 +1,7 @@
 ## I felt in love - Start Learnint Product-Oriented
 We will learn Product-Oriented Concept by our previus to do list mission.
 ## The Problem:
-As we anncounced our mission is to create simple to do list that the user can enter to do item as string in input box, and our program will show all todos that the he has entered in unordered list.
+As we anncounced our mission is to create simple to do list that the user can enter to do item as string in input box, and our program will show all todos that the user has entered in unordered list.
 ## The solution:
 * **Step 1** 
 
