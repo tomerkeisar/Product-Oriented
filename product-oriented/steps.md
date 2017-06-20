@@ -17,4 +17,5 @@ before we continue announce summary:
 In Product-Oriented every element can has input property output property and logic function what makes every html element as web component to achive certain mission
 
 Look at gif animation demonstrate this step:
+<a href="http://makeagif.com/gif/-_DXwGi" title=""><img src="http://i.makeagif.com/media/6-20-2017/_DXwGi.gif" alt=""></a><div style="font-size:11px;">
 
