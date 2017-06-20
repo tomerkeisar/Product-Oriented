@@ -34,6 +34,7 @@ Let's modify our code:
 Above code did exactly that. From now only when the user press enter and the input hold some value just in that case we are generating output, as we said output that will serve us in the future  comunication between that element to another elements.
 
 Following gif animation Demonstrate this step.
+Important Remark: you could not see that i preesed enter in the end of data but trust me i pressed :)
 
 <a href="http://makeagif.com/gif/-g4pSkD" title=""><img src="http://i.makeagif.com/media/6-20-2017/g4pSkD.gif" alt=""></a><div style="font-size:11px;">
 We saw that we can write, debuge, run and check element in definitly isolation way, that amaizing...
