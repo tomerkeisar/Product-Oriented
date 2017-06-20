@@ -17,6 +17,8 @@ Product-Oriented Properties are clever in way they reflect themselves as attribu
 
 the logic attribute, in this case does nothing, except help us to fall this element intp Product-Oriented selectors.
 
+Following gif animation Demonstrate previous explanation.
+
 <a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">
 But we about to only when user press enter after he enter some data then that element makes it job lets update the code
 ```html
