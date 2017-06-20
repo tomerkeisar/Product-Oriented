@@ -1,19 +1,21 @@
 ## I felt in love - Start Learnint Product-Oriented
-We will learn by our prev mission to do list.
+We will learn Product-Oriented Concept by our previus to do list mission.
 ## The Problem:
-Our mission is to create simple to do list that the user can enter to do item in input element, and the program will show all todos that the user entered in unordered list.
+Ass we anncounced our mission is to create simple to do list that the user can enter to do item as string in input box, and our program will show all todos that the he has entered in unordered list.
 ## The solution:
 * **Step 1**
-We need create input that allow the use type in and when the user press enter we can get the vallue the user typed that is we do not want to do something with that value we just need getting the value.
-One of core of Product-Oriented is the of unit of work that allow us to use exist html element to do some mission
-we need to write our text box.
+Start thinking of development process as job that need to be done by workers.
+The first worker e need is input element that we need that worker to allow the use type in the text box  and when the user finish typing by pressing eneter we are just need some reference to the final value.
+One of the core of Product-Oriented's concept is  "Unit of work" meens that we allowed to use exist html element to do some mission
+Let's create our worker.
 ```html
 <input type="text" logic="" onkeyup="this.output=this.value"/>
 ```
-In PO every html  elements cat has output property. that Property will use to hold the value of that element and enable another element to know what happend to that element by this property. 
-in above code we just telling that when the user typed and release key the output property will be synchrunize with the textbox value.
-Product-Oriented Properties are clever in way they reflect themselves to the attribute whats meen you can open your developer toolbar and type on the text box and in live watch the output attributes changed
-the logic attribute does nothing for now. but help us to fall intp PO selectors.
+In Product-Oriented every html  element cat has output property. that Property will allow our another elements to know what the final result  of certain element. 
+In the above code we just telling that when the user release key, then the output property of the input element will be synchrunize with the textbox (itself) value.
+Product-Oriented Properties are clever in way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  show in real time the affected property (in our case Output).
+
+the logic attribute, in this case does nothing, except help us to fall this element intp Product-Oriented selectors.
 
 <a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">
 But we about to only when user press enter after he enter some data then that element makes it job lets update the code
