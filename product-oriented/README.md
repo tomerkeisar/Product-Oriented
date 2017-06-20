@@ -5,20 +5,20 @@ Ass we anncounced our mission is to create simple to do list that the user can e
 ## The solution:
 * **Step 1** 
 
-Start thinking of development process as job that need to be done by workers.
-The first worker e need is input element that we need that worker to allow the use type in the text box  and when the user finish typing by pressing eneter we are just need some reference to the final value.
-One of the core of Product-Oriented's concept is  "Unit of work" meens that we allowed to use exist html element to do some mission
+Start thinking of development process as job that need to be done by workers - form now i will give my html elments sometimes the name workers.
+The first worker we need is input element that allow the use typing and when the user finish typing by pressing eneter, we are just need some reference to this elemets's final value.
+One of the core of Product-Oriented's concept is "Unit of work" meens that we allowed to use exist html element to do some mission.
 Let's create our worker.
 ```html
 <input type="text" logic="" onkeyup="this.output=this.value"/>
 ```
-In Product-Oriented every html  element cat has output property. that Property will allow our another elements to know what the final result  of certain element. 
-In the above code we just telling that when the user release key, then the output property of the input element will be synchrunize with the textbox (itself) value.
-Product-Oriented Properties are clever in way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  show in real time the affected property (in our case Output).
+Output is Product-Oriented property. that Property will allow another elements to know what the final result of certain element - in that case the input. 
+In the above onkeyup event listener code we just telling that when the user release keys, then the output property of the input element will be synchrunize with the input (itself) value.
+Our Properties are clever in way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  show in real time the affected property, (in our case Output) by appropriate attribute.
 
-the logic attribute, in this case does nothing, except help us to fall this element intp Product-Oriented selectors.
+The logic attribute, in this case does nothing, except helping us to fall this element intp Product-Oriented selectors.
 
-Following gif animation Demonstrate previous explanation.
+Following gif animation Demonstrate this step.
 
 <a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">
 But we about to only when user press enter after he enter some data then that element makes it job lets update the code
