@@ -30,5 +30,7 @@ Let's modify our code:
 <input type="text" logic="" onkeyup="if(event.keyCode===13&&this.value){this.output=this.value}"/>
 ```
 
+Above code did that only when the user press enter and the input hold some value just in this case we are generating output that will serve us in the future  comunication between another elements.
+
 
 
