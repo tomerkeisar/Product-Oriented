@@ -35,6 +35,7 @@ We will do that in Product-Oriented way. and you will see how short and simple t
         </template>
     </ul>
 ```
+<a href="https://plnkr.co/edit/5tXdqK7DrFEwlO3BepIx?p=preview">Watch this example on plunker</a>
 This code generate worked to do list app. and it also shows all the Product-Oriented Pros as follow:
 * **Shortens your code incredibly** - above code the shortness code exist for that mission.
 * **Make your code and the developement process composable** Adding some feature, for example counter that will show the sum of todos the user  has, will be very simple. you just need to find in the exist code element to give you the data you need. and create new element that get that data and make things. 
