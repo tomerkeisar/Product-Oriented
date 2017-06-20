@@ -35,7 +35,6 @@ Above code did exactly that. From now only when the user press enter and the inp
 
 Following gif animation Demonstrate this step.
 
-<a href="http://makeagif.com/gif/-w6ZTBt" title=""><img src="http://i.makeagif.com/media/6-20-2017/w6ZTBt.gif" alt=""></a><div style="font-size:11px;">
-
+<a href="http://makeagif.com/gif/-g4pSkD" title=""><img src="http://i.makeagif.com/media/6-20-2017/g4pSkD.gif" alt=""></a><div style="font-size:11px;">
 We saw that we can write, debuge, run and check element in definitly isolation way, that amaizing...
 
