@@ -6,6 +6,7 @@ As we anncounced our mission is to create simple to do list that the user can en
 * **Step 1** 
 
 Start thinking of development process as job that need to be done by workers - form now sometimes i will give my html elments  the name workers.
+
 The first worker we need is input element that allow the use typing and when the user finish typing by pressing eneter, we are just need some reference to this elemets's final value.
 One of the core of Product-Oriented's concept is "Unit of work" meens that we allowed to use exist html element to do some mission.
 Let's create our worker.
