@@ -21,7 +21,11 @@ The logic attribute, in this case does nothing, except helping us to fall this e
 Following gif animation Demonstrate this step.
 
 <a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">
-But we about to only when user press enter after he enter some data then that element makes it job lets update the code
+
+* **Step 2** 
+
+We are about to only when the user press enter and in case it was on non empty input, just in this case to generate Output because just that situation means the input did its mission.
+Let's modify our code:
 ```html
 <input type="text" logic="" onkeyup="if(event.keyCode===13&&this.value){this.output=this.value}"/>
 ```
