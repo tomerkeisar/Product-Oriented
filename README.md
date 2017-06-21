@@ -122,7 +122,7 @@ Hold on we are about to finish, please take a look at this code
    </template> 
 </ul>
 ```
-The above code says in simple words words:
+The above code says in simple words:
 every time output ready from input element then template element recieve that data as its input and do two things.
 the first: set its output to be equal to its input. the second creates li element and append it to the parent element, the ul.
 the li element says that it when recieve input from template it use that value as text content...
