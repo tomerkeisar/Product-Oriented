@@ -49,23 +49,23 @@ This code generate worked to do list app. and it also shows all the Product-Orie
 
 
 ## I felt in love - Start Learnint Product-Oriented
-We will learn Product-Oriented Concept by our previus to do list mission.
+We will learn Product-Oriented Concepts by our previous to do list mission.
 ## The Problem:
-As we anncounced our mission is to create simple to do list that the user can enter to do item as string in input box, and our program will show all todos that the user has entered in unordered list.
+As I said before our mission is to create simple to do list that the user can enter to do item as string into input box, and our program will show all todos that the user has entered in an unordered list.
 ## The solution:
 * **Step 1** 
 
-Start thinking of development process as job that need to be done by workers - form now sometimes i will give my html elments  the name workers.
+Start thinking of development process as job that need to be done by workers. (form now sometimes i will give my html elments  the name workers)
 
-The first worker we need is input element that allow the use typing and when the user finish typing by pressing eneter, we are just need this element generating for us final value.
-One of the core of Product-Oriented's concept is "Unit of work" means that we allowed to use exist html element to do some complete mission.
+The first worker we need is input element, we need it to  enable the user typing and in case enter was pressed  generates new final value.
+One of the core of Product-Oriented's concepts is the "Unit of work" what means that we allowed to use exist html element to do some complete mission.
 Let's create our worker.
 ```html
 <input type="text" logic="" onkeyup="this.output=this.value"/>
 ```
-Output is Product-Oriented property. that Property will allow us in the future another elements to know what the final result of that input element. 
+Output is Product-Oriented property. that Property will allow us in the future comunication between another elements to that input. 
 In the above onkeyup handler code we are just telling that when the user release keys, then the output property of this input element will be synchrunize with it's value.
-Our Properties (In that case output) are clever in the way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  watch in real time the affected property, (in our case Output) by appropriate attribute.
+Product-Oriented Properties (In that case output) are clever in the way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  watch in real time the affected property, (in our case Output) by appropriate attribute.
 
 The logic attribute, in this case does nothing, except helping us to fall this element intp Product-Oriented selectors.
 
