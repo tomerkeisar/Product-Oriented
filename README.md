@@ -65,26 +65,26 @@ Let's create our worker.
 ```
 Output is Product-Oriented property. that Property will allow us in the future comunication between another elements to that input. 
 In the above onkeyup handler code we are just telling that when the user release keys, then the output property of this input element will be synchrunize with it's value.
-Product-Oriented Properties (In that case output) are clever in the way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  watch in real time the affected property, (in our case Output) by appropriate attribute.
+Product-Oriented Properties (In that case output) are clever in the way they reflect themselves as attribute of the element. what's mean you can open your developer toolbar and  watch in real time the affected property, (in our case output) by appropriate attribute.
 
 The logic attribute, in this case does nothing, except helping us to fall this element intp Product-Oriented selectors.
 
-Following gif animation Demonstrate this step.
+Following gif animation demonstrate this step.
 
 <a href="http://makeagif.com/gif/-VWAOvV" title=""><img src="http://i.makeagif.com/media/6-19-2017/VWAOvV.gif" alt=""></a><div style="font-size:11px;">
 
 * **Step 2** 
 
-But we are about to only when the user pressed enter and in case it was on non empty input, just in that case to generate Output because just that situation means the input did its mission.
+But to be honest we are about to only when the user pressed enter and in case it was on non empty input just in that case to generate output because just that situation means the input have done its mission.
 Let's modify our code:
 ```html
 <input type="text" logic="" onkeyup="if(event.keyCode===13&&this.value){this.output=this.value}"/>
 ```
 
-Above code did exactly that. From now only when the user press enter and the input hold some value just in that case we are generating output, as we said output that will serve us in the future  comunication between that element to another elements.
+Above code did exactly what we need. from now only when the user press enter and the input hold some value just in that case we are generating output, as I said before, output is very important it will serve  in the future for  comunication between elements.
 
-Following gif animation Demonstrate this step.
-Important Remark: you could not see that i preesed enter in the end of data but trust me i pressed :)
+Following gif animation demonstrate this step.
+Important Remark: you could not see that i preesed enter at the end but trust me i pressed :)
 
 <a href="http://makeagif.com/gif/-g4pSkD" title=""><img src="http://i.makeagif.com/media/6-20-2017/g4pSkD.gif" alt=""></a><div style="font-size:11px;">
 We saw that we can write, debuge, run and check element in definitly isolation way, that amaizing...
