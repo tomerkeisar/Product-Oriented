@@ -104,16 +104,16 @@ Look at the folowing addedd code
 ```html
 <li input-from="input" logic="this.textContent=this.inputfield"></li>  
 ```
-Now we declare in logic attribute that the main logic of this element is to write on that element the just value that we just get in input field.
-before we continue announce summary:
-In Product-Oriented every element can has input property output property and logic function what makes every html element as web component to achive certain mission
+Now we declare in logic attribute that the main logic of this element is to write on that element text content the value that we just get.
+before we continue let say summary:
+In Product-Oriented every element can has input property, output property, and  logic function what makes every html element work as web component to achive certain mission.
 
-Look at gif animation demonstrate this step:
+Following gif animation demonstrate this step.
 <a href="http://makeagif.com/gif/-_DXwGi" title=""><img src="http://i.makeagif.com/media/6-20-2017/_DXwGi.gif" alt=""></a><div style="font-size:11px;">
 
 * **Last Step**
 
-Hold on take a look at this code
+Hold on we are about to finish, please take a look at this code
 ```html
 <ul>
   <template input-from="input" logic="this.output=this.inputfield;
@@ -122,10 +122,12 @@ Hold on take a look at this code
    </template> 
 </ul>
 ```
-The above code says in words: when output ready from input element then template element recieve that dataa as input and do two things. one set his synchrun his output to the arrived input and creates li child and append it to the parent.
-the li says that it recieve input from template and use that value as text content...
+The above code says in simple words words:
+every time output ready from input element then template element recieve that data as its input and do two things.
+the first: set its output to be equal to its input. the second creates li element and append it to the parent element, the ul.
+the li element says that it when recieve input from template it use that value as text content...
 
-look at gif animation:
+Following gif animation demonstrate this step.
 
 <a href="http://makeagif.com/gif/-OwuYIk" title=""><img src="http://i.makeagif.com/media/6-20-2017/OwuYIk.gif" alt=""></a><div style="font-size:11px;">
 
