@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      const url = 'https://resumeapplicationwebapi20240223091007.azurewebsites.net/api/skills';
+        fetch(url,{mode:'cors'})
+        .then(x=>x.json())
+        .then(y=>{
+            printSkills(y);
+        });
+
+        function printSkills(skills){
+            skills.forEach(element => {
+                  document.body.innerHTML+=`Next Skill ${element.skillName}<br>`;
+            });
+
+        }
+    </script>
+    
+</body>
+</html>
